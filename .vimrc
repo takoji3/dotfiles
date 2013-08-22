@@ -169,3 +169,14 @@ map <silent> [Tag]p :tabprevious<CR> " tp 前のタブ
 
 
 " gtags
+" q close window
+" g grep
+" l function list
+" j jump defined
+nmap <C-g>q <C-w><C-w><C-w>q
+"nmap <C-g>g :Gtags -g<CR>
+nmap <C-g>l :Gtags -f %<CR>
+nmap <C-g>j :GtagsCursor<CR>
+"nmap <C-g>n :cn<CR>
+"nmap <C-g>p :cp<CR>
+
