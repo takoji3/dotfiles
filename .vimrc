@@ -10,27 +10,20 @@ set incsearch
 " 行表示
 set number
 
-" 改行時に前後の行とインデントを合わせるかどうか
-set autoindent
-
-" Tabキー押下時にスペースが入るようにする
-"set expandtab 
-
 " 改行時インデントそろえる
 set smartindent
 
 " 一つのtabが何文字で表示されるか
 "set tabstop=4 
 
-" インデント幅を決める
-"set shiftwidth=4 
+" tabキーをスペース4つ
+set tabstop=4 
+set expandtab 
+set autoindent
+set shiftwidth=4 
 
 " 行線表示
 set cursorline
-" 色つけれる
-"highlight CursorLine ctermfg=Blue
-
-"set cursorcolumn
 
 " tabを可視化
 "set list
@@ -55,8 +48,7 @@ function! s:LoadBundles()
 	" 読み込むプラグインの指定
 	NeoBundle 'scrooloose/nerdtree'
 	"NeoBundle 'rgarver/Kwbd.vim'
-	"NeoBundle 'vim-scripts/buftabs'
-	NeoBundle 'vim-scripts/minibufexplorerpp'
+	"NeoBundle 'vim-scripts/minibufexplorerpp'
 
 	" Unite.vim
 	"NeoBundle 'Shougo/unite.vim'
@@ -104,24 +96,21 @@ call s:InitNeoBundle()
 " color scheme
 colorscheme desert
 
-" php定義辞書
-"set dictionary=~/.vim/php.dict
-
 " nerdtree設定
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " minibufexpl
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBuffs = 1
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBuffs = 1
 
 " short cut delete buffer
 "nnoremap <C-k> :Kwbd<CR>
 
 " バッファ切替
-nnoremap <S-l> :bn<CR>
-nnoremap <S-h> :bp<CR>
+"nnoremap <S-l> :bn<CR>
+"nnoremap <S-h> :bp<CR>
 
 " neocomplcache設定
 let g:neocomplcache_enable_at_startup=1
@@ -130,6 +119,53 @@ let g:neocomplcache_enable_at_startup=1
 "noremap <C-t><C-g> :Tlist<CR>
 
 " ctags short cut
-nnoremap <S-t> :tjump<CR>
+"nnoremap <S-t> :tjump<CR>
 
 nnoremap ; :
+
+
+" Anywhere SID.
+function! s:SID_PREFIX()
+	return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+" page tab
+" Set tabline.
+function! s:my_tabline()
+	let s = ''
+	for i in range(1, tabpagenr('$'))
+		let bufnrs = tabpagebuflist(i)
+		let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+		let no = i  " display 0-origin tabpagenr.
+		let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+		let title = fnamemodify(bufname(bufnr), ':t')
+		let title = '[' . title . ']'
+		let s .= '%'.i.'T'
+		let s .= '%#' . (i == tabpagenr() ?  'TabLineSel' : 'TabLine') . '#'
+		let s .= no . ':' . title
+		let s .= mod
+		let s .= '%#TabLineFill# '
+	endfor
+	let s .= '%#TabLineFill#%T%=%#TabLine#'
+	return s
+endfunction
+
+let &tabline = '%!'.  s:SID_PREFIX() .  'my_tabline()'
+set showtabline=1 " タブライン表示
+
+" The prefix key.
+nnoremap [Tag] <Nop>
+nmap t [Tag]
+
+" Tab jump
+for n in range(1, 9)
+	execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+map <silent> [Tag]c :tablast <bar> tabnew<CR> " tc 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR> " tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR> " tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR> " tp 前のタブ
+
+
+" gtags
