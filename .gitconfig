@@ -1,0 +1,8 @@
+[user]
+  email = E-mail
+  name = First Last
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
