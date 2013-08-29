@@ -66,6 +66,9 @@ function! s:LoadBundles()
 	NeoBundle 'MarcWeber/vim-addon-mw-utils'
 	NeoBundle 'honza/snipmate-snippets'
 
+	NeoBundle 'vim-scripts/YankRing.vim'
+	NeoBundle 'scrooloose/nerdcommenter'
+
 endfunction
 
 " NeoBundle がインストールされているなら LoadBundles()を呼び出す
@@ -109,11 +112,13 @@ let NERDTreeShowHidden=1
 "nnoremap <C-k> :Kwbd<CR>
 
 " バッファ切替
-"nnoremap <S-l> :bn<CR>
-"nnoremap <S-h> :bp<CR>
+nnoremap <S-l> :bn<CR>
+nnoremap <S-h> :bp<CR>
 
 " neocomplcache設定
 let g:neocomplcache_enable_at_startup=1
+
+let NERDSpaceDelims = 1
 
 " taglist.vim設定
 "noremap <C-t><C-g> :Tlist<CR>
@@ -162,10 +167,10 @@ for n in range(1, 9)
 	execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-map <silent> [Tag]c :tablast <bar> tabnew<CR> " tc 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR> " tx タブを閉じる
-map <silent> [Tag]n :tabnext<CR> " tn 次のタブ
-map <silent> [Tag]p :tabprevious<CR> " tp 前のタブ
+"map <silent> [Tag]c :tablast <bar> tabnew<CR> " tc 新しいタブを一番右に作る
+"map <silent> [Tag]x :tabclose<CR> " tx タブを閉じる
+"map <silent> [Tag]n :tabnext<CR> " tn 次のタブ
+"map <silent> [Tag]p :tabprevious<CR> " tp 前のタブ
 
 
 " gtags
