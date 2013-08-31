@@ -47,8 +47,8 @@ function! s:LoadBundles()
 
 	" 読み込むプラグインの指定
 	NeoBundle 'scrooloose/nerdtree'
-	"NeoBundle 'rgarver/Kwbd.vim'
-	"NeoBundle 'vim-scripts/minibufexplorerpp'
+	NeoBundle 'rgarver/Kwbd.vim'
+	NeoBundle 'vim-scripts/minibufexplorerpp'
 
 	" Unite.vim
 	"NeoBundle 'Shougo/unite.vim'
@@ -100,13 +100,13 @@ call s:InitNeoBundle()
 colorscheme desert
 
 " nerdtree設定
-map <C-n> :NERDTreeToggle<CR>
+map <C-n>o :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " minibufexpl
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBuffs = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBuffs = 1
 
 " short cut delete buffer
 "nnoremap <C-k> :Kwbd<CR>
