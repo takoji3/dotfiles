@@ -24,6 +24,7 @@ set shiftwidth=4
 
 " 行線表示
 set cursorline
+set hlsearch
 
 " tabを可視化
 "set list
@@ -100,7 +101,7 @@ call s:InitNeoBundle()
 colorscheme desert
 
 " nerdtree設定
-map <C-n>o :NERDTreeToggle<CR>
+map <C-o> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " minibufexpl
