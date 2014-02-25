@@ -52,7 +52,8 @@ function! s:LoadBundles()
 	NeoBundle 'vim-scripts/minibufexplorerpp'
 
 	" Unite.vim
-	"NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/vimproc'
 	"NeoBundle 'ujihisa/unite-colorscheme'
 
 	" neocomplcache設定
@@ -62,13 +63,19 @@ function! s:LoadBundles()
 	"NeoBundle 'vim-scripts/taglist.vim'
 
 	" snipmate設定
-	NeoBundle 'garbas/vim-snipmate'
-	NeoBundle 'tomtom/tlib_vim'
-	NeoBundle 'MarcWeber/vim-addon-mw-utils'
-	NeoBundle 'honza/snipmate-snippets'
+    "NeoBundle 'Shougo/neocomplete'
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
 
 	NeoBundle 'vim-scripts/YankRing.vim'
 	NeoBundle 'scrooloose/nerdcommenter'
+
+    "NeoBundle 'alpaca-tc/alpaca_powertabline'
+    "NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+
+	NeoBundle 'Shougo/vimshell'
+	NeoBundle 'vim-scripts/Pydiction'
+	NeoBundle 'mattn/hahhah-vim'
 
 endfunction
 
@@ -118,7 +125,14 @@ nnoremap <S-h> :bp<CR>
 
 " neocomplcache設定
 let g:neocomplcache_enable_at_startup=1
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
 
+" nerdtree
 let NERDSpaceDelims = 1
 
 " taglist.vim設定
@@ -127,7 +141,10 @@ let NERDSpaceDelims = 1
 " ctags short cut
 "nnoremap <S-t> :tjump<CR>
 
-nnoremap ; :
+" snippet
+"let g:neocomplete#enable_at_startup = 1
+
+noremap ; :
 
 
 " Anywhere SID.
@@ -185,4 +202,5 @@ nmap <C-g>l :Gtags -f %<CR>
 nmap <C-g>j :GtagsCursor<CR>
 "nmap <C-g>n :cn<CR>
 "nmap <C-g>p :cp<CR>
+
 
