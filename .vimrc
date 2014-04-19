@@ -37,6 +37,9 @@ set autoread
 set visualbell t_vb=
 set noerrorbells
 
+" 文字コード自動判別
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 " NeoBundle がインストールされていない時、もしくはプラグインの初期化に失敗した時の処理
 function! s:WithoutBundles()
