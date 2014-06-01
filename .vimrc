@@ -80,6 +80,8 @@ function! s:LoadBundles()
 	NeoBundle 'vim-scripts/Pydiction'
 	NeoBundle 'mattn/hahhah-vim'
 
+	NeoBundle 'davidhalter/jedi-vim'
+
 endfunction
 
 " NeoBundle がインストールされているなら LoadBundles()を呼び出す
