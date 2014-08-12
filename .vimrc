@@ -1,6 +1,9 @@
 " スワップファイル作らない
 set noswapfile
 
+" バックアップファイル作らない
+set nobackup
+
 " 大文字小文字判別しない
 set ignorecase
 
@@ -55,8 +58,8 @@ function! s:LoadBundles()
 	NeoBundle 'vim-scripts/minibufexplorerpp'
 
 	" Unite.vim
-	NeoBundle 'Shougo/unite.vim'
-	NeoBundle 'Shougo/vimproc'
+	"NeoBundle 'Shougo/unite.vim'
+	"NeoBundle 'Shougo/vimproc'
 	"NeoBundle 'ujihisa/unite-colorscheme'
 
 	" neocomplcache設定
@@ -67,8 +70,8 @@ function! s:LoadBundles()
 
 	" snipmate設定
     "NeoBundle 'Shougo/neocomplete'
-    NeoBundle 'Shougo/neosnippet'
-    NeoBundle 'Shougo/neosnippet-snippets'
+    "NeoBundle 'Shougo/neosnippet'
+    "NeoBundle 'Shougo/neosnippet-snippets'
 
 	NeoBundle 'vim-scripts/YankRing.vim'
 	NeoBundle 'scrooloose/nerdcommenter'
