@@ -1,7 +1,4 @@
-" スワップファイル作らない
 set noswapfile
-
-" バックアップファイル作らない
 set nobackup
 
 " 大文字小文字判別しない
@@ -37,12 +34,15 @@ set hlsearch
 set autoread
 
 " no beep
-set visualbell t_vb=
+set visualbell
 set noerrorbells
+
+" 補完
+set pumheight=10
 
 " 文字コード自動判別
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+"set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 " NeoBundle がインストールされていない時、もしくはプラグインの初期化に失敗した時の処理
 function! s:WithoutBundles()
@@ -58,7 +58,7 @@ function! s:LoadBundles()
 	NeoBundle 'vim-scripts/minibufexplorerpp'
 
 	" Unite.vim
-	"NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/unite.vim'
 	"NeoBundle 'Shougo/vimproc'
 	"NeoBundle 'ujihisa/unite-colorscheme'
 
@@ -73,17 +73,25 @@ function! s:LoadBundles()
     "NeoBundle 'Shougo/neosnippet'
     "NeoBundle 'Shougo/neosnippet-snippets'
 
-	NeoBundle 'vim-scripts/YankRing.vim'
+	"NeoBundle 'vim-scripts/YankRing.vim'
 	NeoBundle 'scrooloose/nerdcommenter'
 
     "NeoBundle 'alpaca-tc/alpaca_powertabline'
     "NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
-	NeoBundle 'Shougo/vimshell'
-	NeoBundle 'vim-scripts/Pydiction'
-	NeoBundle 'mattn/hahhah-vim'
+	"NeoBundle 'Shougo/vimshell'
+	"NeoBundle 'vim-scripts/Pydiction'
+	"NeoBundle 'mattn/hahhah-vim'
 
 	NeoBundle 'davidhalter/jedi-vim'
+    NeoBundle 'derekwyatt/vim-scala'
+
+    NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
+
+    NeoBundle "majutsushi/tagbar"
+    NeoBundle "szw/vim-tags"
+
+    NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 
 endfunction
 
@@ -104,6 +112,12 @@ function!  s:InitNeoBundle()
 	else
 		call s:WithoutBundles()
 	endif
+
+    " golang
+    if $GOROOT != ''
+        filetype off
+        set runtimepath+=$GOROOT/misc/vim
+    endif
 
 	filetype indent plugin on
 	syntax on
@@ -154,6 +168,37 @@ let NERDSpaceDelims = 1
 
 noremap ; :
 
+" gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" gist-vim
+let g:gist_use_password_in_gitconfig = 1
 
 " Anywhere SID.
 function! s:SID_PREFIX()
@@ -198,6 +243,7 @@ endfor
 "map <silent> [Tag]n :tabnext<CR> " tn 次のタブ
 "map <silent> [Tag]p :tabprevious<CR> " tp 前のタブ
 
+nmap <C-t><C-t> :TagbarToggle<CR>
 
 " gtags
 " q close window
@@ -210,5 +256,3 @@ nmap <C-g>l :Gtags -f %<CR>
 nmap <C-g>j :GtagsCursor<CR>
 "nmap <C-g>n :cn<CR>
 "nmap <C-g>p :cp<CR>
-
-
