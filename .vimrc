@@ -56,29 +56,11 @@ function! s:LoadBundles()
 
 	" Unite.vim
 	NeoBundle 'Shougo/unite.vim'
-	"NeoBundle 'Shougo/vimproc'
-	"NeoBundle 'ujihisa/unite-colorscheme'
 
 	" neocomplcache設定
 	NeoBundle 'Shougo/neocomplcache'
 
-	" taglist設定重いからはずす
-	"NeoBundle 'vim-scripts/taglist.vim'
-
-	" snipmate設定
-    "NeoBundle 'Shougo/neocomplete'
-    "NeoBundle 'Shougo/neosnippet'
-    "NeoBundle 'Shougo/neosnippet-snippets'
-
-	"NeoBundle 'vim-scripts/YankRing.vim'
 	NeoBundle 'scrooloose/nerdcommenter'
-
-    "NeoBundle 'alpaca-tc/alpaca_powertabline'
-    "NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-
-	"NeoBundle 'Shougo/vimshell'
-	"NeoBundle 'vim-scripts/Pydiction'
-	"NeoBundle 'mattn/hahhah-vim'
 
 	NeoBundle 'davidhalter/jedi-vim'
     NeoBundle 'derekwyatt/vim-scala'
@@ -88,7 +70,15 @@ function! s:LoadBundles()
     NeoBundle "majutsushi/tagbar"
     NeoBundle "szw/vim-tags"
 
-    NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+    " for nodejs
+    NeoBundle 'moll/vim-node'
+    NeoBundle 'myhere/vim-nodejs-complete'
+    :setl omnifunc=jscomplete#CompleteJS
+    if !exists('g:neocomplcache_omni_functions')
+      let g:neocomplcache_omni_functions = {}
+    endif
+    let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+    let g:node_usejscomplete = 1
 
 endfunction
 
