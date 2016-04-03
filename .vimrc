@@ -13,14 +13,15 @@ set number
 " 改行時インデントそろえる
 set smartindent
 
-" 一つのtabが何文字で表示されるか
-"set tabstop=4 
-
-" tabキーをスペース4つ
-set tabstop=4 
-set expandtab 
+set expandtab
 set autoindent
-set shiftwidth=4 
+set tabstop=4
+set shiftwidth=4
+
+" ファイル別インデント
+augroup fileTypeIndent
+  autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 shiftwidth=2
+augroup END
 
 " 行線表示
 set cursorline
