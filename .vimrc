@@ -27,15 +27,11 @@ augroup END
 set cursorline
 set hlsearch
 
-" tabを可視化
-"set list
-"set listchars=tab:>_
-
 " auto reload
 set autoread
 
 " no beep
-set visualbell
+set visualbell t_vb=
 set noerrorbells
 
 " 補完
