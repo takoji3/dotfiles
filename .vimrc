@@ -80,6 +80,10 @@ function! s:LoadBundles()
     let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
     let g:node_usejscomplete = 1
 
+    " rails
+    NeoBundle 'tpope/vim-rails'
+    NeoBundle 'tpope/vim-endwise'
+
 endfunction
 
 " NeoBundle がインストールされているなら LoadBundles()を呼び出す
