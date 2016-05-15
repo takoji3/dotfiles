@@ -43,26 +43,26 @@ set encoding=utf-8
 
 " NeoBundle がインストールされていない時、もしくはプラグインの初期化に失敗した時の処理
 function! s:WithoutBundles()
-	"
+    "
 endfunction
 
 " NeoBundle よるプラグインのロードと各プラグインの初期化
 function! s:LoadBundles()
 
-	" 読み込むプラグインの指定
-	NeoBundle 'scrooloose/nerdtree'
-	NeoBundle 'rgarver/Kwbd.vim'
-	NeoBundle 'vim-scripts/minibufexplorerpp'
+    " 読み込むプラグインの指定
+    NeoBundle 'scrooloose/nerdtree'
+    NeoBundle 'rgarver/Kwbd.vim'
+    NeoBundle 'vim-scripts/minibufexplorerpp'
 
-	" Unite.vim
-	NeoBundle 'Shougo/unite.vim'
+    " Unite.vim
+    NeoBundle 'Shougo/unite.vim'
 
-	" neocomplcache設定
-	NeoBundle 'Shougo/neocomplcache'
+    " neocomplcache設定
+    NeoBundle 'Shougo/neocomplcache'
 
-	NeoBundle 'scrooloose/nerdcommenter'
+    NeoBundle 'scrooloose/nerdcommenter'
 
-	NeoBundle 'davidhalter/jedi-vim'
+    NeoBundle 'davidhalter/jedi-vim'
     NeoBundle 'derekwyatt/vim-scala'
 
     NeoBundleLazy 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
@@ -89,20 +89,20 @@ endfunction
 " NeoBundle がインストールされているなら LoadBundles()を呼び出す
 " そうでないなら WithoutBundles() を呼び出す
 function!  s:InitNeoBundle()
-	if isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-		filetype plugin indent off
-		if has('vim_starting')
-			set runtimepath+=~/.vim/bundle/neobundle.vim/
-			endif
-		try
-			call neobundle#rc(expand('~/.vim/bundle/'))
-			call s:LoadBundles()
-		catch
-			call s:WithoutBundles()
-		endtry 
-	else
-		call s:WithoutBundles()
-	endif
+    if isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+        filetype plugin indent off
+        if has('vim_starting')
+            set runtimepath+=~/.vim/bundle/neobundle.vim/
+            endif
+        try
+            call neobundle#rc(expand('~/.vim/bundle/'))
+            call s:LoadBundles()
+        catch
+            call s:WithoutBundles()
+        endtry 
+    else
+        call s:WithoutBundles()
+    endif
 
     " golang
     if $GOROOT != ''
@@ -110,8 +110,8 @@ function!  s:InitNeoBundle()
         set runtimepath+=$GOROOT/misc/vim
     endif
 
-	filetype indent plugin on
-	syntax on
+    filetype indent plugin on
+    syntax on
 endfunction
 
 call s:InitNeoBundle()
@@ -193,28 +193,28 @@ let g:gist_use_password_in_gitconfig = 1
 
 " Anywhere SID.
 function! s:SID_PREFIX()
-	return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+    return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
 " page tab
 " Set tabline.
 function! s:my_tabline()
-	let s = ''
-	for i in range(1, tabpagenr('$'))
-		let bufnrs = tabpagebuflist(i)
-		let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-		let no = i  " display 0-origin tabpagenr.
-		let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-		let title = fnamemodify(bufname(bufnr), ':t')
-		let title = '[' . title . ']'
-		let s .= '%'.i.'T'
-		let s .= '%#' . (i == tabpagenr() ?  'TabLineSel' : 'TabLine') . '#'
-		let s .= no . ':' . title
-		let s .= mod
-		let s .= '%#TabLineFill# '
-	endfor
-	let s .= '%#TabLineFill#%T%=%#TabLine#'
-	return s
+    let s = ''
+    for i in range(1, tabpagenr('$'))
+        let bufnrs = tabpagebuflist(i)
+        let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+        let no = i  " display 0-origin tabpagenr.
+        let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+        let title = fnamemodify(bufname(bufnr), ':t')
+        let title = '[' . title . ']'
+        let s .= '%'.i.'T'
+        let s .= '%#' . (i == tabpagenr() ?  'TabLineSel' : 'TabLine') . '#'
+        let s .= no . ':' . title
+        let s .= mod
+        let s .= '%#TabLineFill# '
+    endfor
+    let s .= '%#TabLineFill#%T%=%#TabLine#'
+    return s
 endfunction
 
 let &tabline = '%!'.  s:SID_PREFIX() .  'my_tabline()'
@@ -226,7 +226,7 @@ nmap t [Tag]
 
 " Tab jump
 for n in range(1, 9)
-	execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
+    execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
 endfor
 
 "map <silent> [Tag]c :tablast <bar> tabnew<CR> " tc 新しいタブを一番右に作る
