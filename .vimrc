@@ -21,6 +21,8 @@ set shiftwidth=4
 " ファイル別インデント
 augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
 
 " 行線表示
