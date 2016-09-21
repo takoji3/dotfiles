@@ -4,6 +4,7 @@
         "**/*.meta": true
     },
     "files.eol": "\n\r",
+    "files.trimTrailingWhitespace": true,
     "editor.wrappingIndent": "none",
     "editor.referenceInfos": false,
     "editor.tabSize": "4",
