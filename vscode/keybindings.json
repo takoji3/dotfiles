@@ -1,9 +1,5 @@
 [
     {
-        "key": "ctrl+r",
-        "command": "workbench.action.files.newUntitledFile"
-    },
-    {
         "key": "ctrl+n",
         "command": "cursorDown",
         "when": "editorTextFocus"
@@ -14,13 +10,13 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "alt+f",
-        "command": "cursorWordRight",
+        "key": "ctrl+f",
+        "command": "cursorRight",
         "when": "editorTextFocus"
     },
     {
-        "key": "alt+b",
-        "command": "cursorWordLeft",
+        "key": "ctrl+b",
+        "command": "cursorLeft",
         "when": "editorTextFocus"
     }
 ]
