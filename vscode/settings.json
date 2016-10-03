@@ -16,5 +16,8 @@
             "before": [";"],
             "after": [":"]
         }
-    ]
+    ],
+    "vim.useCtrlKeys": true,
+    "insertFinalNewLine": true,
+    "editor.detectIndentation": false
 }
