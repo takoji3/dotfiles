@@ -17,9 +17,8 @@ eval "$(pyenv init -)"
 # nvm
 export NVM_DIR=~/.nvm
 source $HOME/.nvm/nvm.sh
-# use brew
-#source $(brew --prefix nvm)/nvm.sh
-#nvm use v5.3.0
+
+export PATH=$HOME/bin:$PATH
 
 # golang
 export GOPATH=~/go
