@@ -1,6 +1,7 @@
 color desert
 
 set noswapfile
+set nobackup
 set lines=52
 set columns=108
 
