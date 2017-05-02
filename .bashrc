@@ -27,3 +27,5 @@ alias updategopath='export GOPATH=$(pwd)'
 
 # ghq + peco
 alias ghqpecolscd='cd "$(ghq list --full-path | peco)"'
+
+export AWS_DEFAULT_PROFILE=default
