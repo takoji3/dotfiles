@@ -5,6 +5,7 @@ export GIT_EDITOR=vim
 alias ls='ls -G'
 alias v='vim'
 alias addbashrc="echo $1 >> $HOME/.bashrc"
+alias gitbranchdelete='gt branch | grep -v mastere | grep -v "*" | xargs git branch -d'
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
