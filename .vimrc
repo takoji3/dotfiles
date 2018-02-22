@@ -56,14 +56,13 @@ set shiftwidth=4
 set cursorline
 set hlsearch
 
-" auto reload
 set autoread
 
 " no beep
 set visualbell t_vb=
 set noerrorbells
 
-" 補完
+" 補完行数
 set pumheight=10
 
 " 文字コード自動判別
@@ -78,6 +77,22 @@ noremap ; :
 " change buffer
 map bn :bn<CR>
 map bp :bp<CR>
+
+set wildmenu
+
+" ignore indent when past from clipboard
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 
 " nerdtree settings
