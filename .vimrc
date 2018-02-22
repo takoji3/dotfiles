@@ -1,3 +1,6 @@
+"----------------------------------
+" Vundle
+"----------------------------------
 set nocompatible
 filetype off
 
@@ -10,15 +13,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-
 " add plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/lightline.vim'
+Plugin 'tomasr/molokai'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
+"
+"To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Brief help
@@ -31,7 +38,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-
+"----------------------------------
+" Settings
+"----------------------------------
 set noswapfile
 set nobackup
 
@@ -70,7 +79,8 @@ set encoding=utf-8
 "set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 syntax on
-colorscheme desert
+colorscheme molokai
+highlight Normal ctermbg=none
 
 noremap ; :
 
@@ -94,9 +104,14 @@ if &term =~ "xterm"
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+autocmd VimEnter * tab ba
 
-" nerdtree settings
-map <C-n> :NERDTreeToggle<CR>
+
+"----------------------------------
+" Nerdtree settings
+"----------------------------------
+map <C-o> :NERDTreeToggle<CR>
 " open nerdtree when no file specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
