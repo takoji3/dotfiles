@@ -85,6 +85,12 @@ highlight Normal ctermbg=none
 
 noremap ; :
 
+set wildmenu
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 " change buffer
 map bn :bn<CR>
 map bp :bp<CR>
@@ -95,8 +101,6 @@ map tp :tabprevious<CR>
 for n in range(1, 9)
   execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
-
-set wildmenu
 
 " ignore indent when past from clipboard
 if &term =~ "xterm"
