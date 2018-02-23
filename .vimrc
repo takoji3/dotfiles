@@ -19,6 +19,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tomasr/molokai'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 
 " All of your Plugins must be added before the following line
@@ -88,6 +89,13 @@ noremap ; :
 map bn :bn<CR>
 map bp :bp<CR>
 
+" change tab
+map tn :tabnext<CR>
+map tp :tabprevious<CR>
+for n in range(1, 9)
+  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
 set wildmenu
 
 " ignore indent when past from clipboard
@@ -104,14 +112,15 @@ if &term =~ "xterm"
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
-autocmd VimEnter * tab ba
-
 
 "----------------------------------
 " Nerdtree settings
 "----------------------------------
-map <C-o> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+"map <C-o> :NERDTreeToggle<CR>
+map <C-o> :NERDTreeTabsToggle<CR>
+
 " open nerdtree when no file specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
