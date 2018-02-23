@@ -130,6 +130,21 @@ map <C-o> :NERDTreeTabsToggle<CR>
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "----------------------------------
+" lightline
+"----------------------------------
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==# 'unite' ? unite#get_status_string() :
+        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+        \ expand('%:') !=# '' ? expand('%:') : '[No Name]'
+endfunction
+
 " vim-go
 "----------------------------------
 let g:go_highlight_types = 1
