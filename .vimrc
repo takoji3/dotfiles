@@ -145,6 +145,7 @@ function! LightlineFilename()
         \ expand('%:') !=# '' ? expand('%:') : '[No Name]'
 endfunction
 
+"----------------------------------
 " vim-go
 "----------------------------------
 let g:go_highlight_types = 1
