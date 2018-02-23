@@ -20,6 +20,7 @@ Plugin 'tomasr/molokai'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'fatih/vim-go'
 
 
 " All of your Plugins must be added before the following line
@@ -128,3 +129,11 @@ map <C-o> :NERDTreeTabsToggle<CR>
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+"----------------------------------
+" vim-go
+"----------------------------------
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
