@@ -20,5 +20,6 @@
     "vim.useCtrlKeys": true,
     "insertFinalNewLine": true,
     "editor.detectIndentation": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": false
 }
