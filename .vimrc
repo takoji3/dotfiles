@@ -118,6 +118,10 @@ if &term =~ "xterm"
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
 "----------------------------------
 " Nerdtree settings
