@@ -61,6 +61,7 @@ set smartindent
 set expandtab
 set autoindent
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 
 " 行線表示
