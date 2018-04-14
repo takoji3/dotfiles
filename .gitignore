@@ -1,6 +1,11 @@
 .DS_Store
 .python-version
+.ruby-version
+
 GPATH
 GRTAGS
 GTAGS
 tags
+
+.idea
+*.iml
