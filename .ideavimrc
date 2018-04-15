@@ -1,0 +1,8 @@
+set visualbell
+set noerrorbells
+set ignorecase
+set incsearch
+set hlsearch
+set showcmd
+set showmatch
+nnoremap <esc> :noh<return><esc>
