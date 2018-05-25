@@ -6,7 +6,7 @@
     "files.eol": "\n\r",
     "files.trimTrailingWhitespace": true,
     "editor.wrappingIndent": "none",
-    "editor.referenceInfos": false,
+    "editor.codeLens": false,
     "editor.tabSize": "4",
     "editor.insertSpaces": true,
     "editor.wrappingColumn": 0,
