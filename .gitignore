@@ -7,8 +7,10 @@ GRTAGS
 GTAGS
 tags
 
-.idea
+.idea*
 *.iml
 
 .vscode
 Assets/VSCode*
+
+vendor/bundle
