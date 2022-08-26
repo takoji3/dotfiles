@@ -7,7 +7,7 @@ alias ls='ls -G'
 alias v='vim'
 alias vi='vim'
 alias vim=$(brew --prefix vim)/bin/vim
-alias gitbranchdelete='git branch | grep -v master | grep -v "*" | xargs git branch -d'
+alias gitbranchdelete='git branch | grep -v master | grep -v main | grep -v "*" | xargs git branch -d'
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
