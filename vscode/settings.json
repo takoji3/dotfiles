@@ -11,15 +11,9 @@
     "editor.insertSpaces": true,
     "editor.wrappingColumn": 0,
     // for vim extension
-    "vim.otherModesKeyBindings": [
-        {
-            "before": [";"],
-            "after": [":"]
-        }
-    ],
     "vim.useCtrlKeys": true,
-    "insertFinalNewLine": true,
     "editor.detectIndentation": false,
     "editor.minimap.enabled": false,
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "files.insertFinalNewline": true
 }
